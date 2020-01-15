@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f27eeb12-9986-47d8-9f66-982e720b12f3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/model/Alimento.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Cereal.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Fruta.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/ICrudActions.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Verdura.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipesMaker/META-INF/RecipesMaker.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipesMaker/META-INF/RecipesMaker.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipesMaker/MainKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipesMaker/MainKt.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Alimento.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Alimento.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Cereal.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Fruta.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Verdura.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +22,7 @@
         <option value="Kotlin File" />
         <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
+        <option value="Kotlin Enum" />
       </list>
     </option>
   </component>
@@ -103,5 +104,55 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/Recipe-Maker" />
     </ignored-roots>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1577378138726">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577378138726" />
+    <state width="1877" height="288" key="GridCell.Tab.0.bottom" timestamp="1579101002998">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="288" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579101002998" />
+    <state width="1877" height="288" key="GridCell.Tab.0.center" timestamp="1579101002998">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="288" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579101002998" />
+    <state width="1877" height="288" key="GridCell.Tab.0.left" timestamp="1579101002998">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="288" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579101002998" />
+    <state width="1877" height="288" key="GridCell.Tab.0.right" timestamp="1579101002998">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="288" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579101002998" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1579017508561">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579017508561" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1579017508561">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579017508561" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1579017508561">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579017508561" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1579017508561">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579017508561" />
+    <state x="342" y="245" key="new project wizard" timestamp="1578669751733">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="342" y="245" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1578669751733" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1577377818509">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1577377818509" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1577378832460">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1577378832460" />
   </component>
 </project>

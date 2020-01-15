@@ -1,7 +1,10 @@
+import model.Alimento
 
 //Listas
-val listaIngredientes:List<String> = listOf<String>("Agua", "Leche", "Carne", "Verduras", "Frutas", "Cereal", "Huevos", "Aceite")
-var listaRecetas:HashMap<String, List<String>> = hashMapOf()
+var listaIngredientes:List<Alimento> = listOf<Alimento>()
+var listaRecetas:HashMap<String, List<Alimento>> = hashMapOf()
+var listaGruposNoRepes:HashMap<Int, String> = hashMapOf()
+var listaTempIngredientes:List<Alimento> = listOf()
 
 val menu:String = """
         Selecciona la opción deseada
@@ -11,6 +14,8 @@ val menu:String = """
     """.trimIndent()
 
 fun main (args:Array<String>){
+
+    crearAlimentosIniciales()
 
     //Empieza el programa
 
@@ -45,7 +50,8 @@ fun makeRecipe(){
     //Variables
     var nombreReceta:String
     var seguir:String = "N"
-    var ingrediente:String
+    var ingrediente:String = "SinIngrediente"
+    var grupo:String = "SinGrupo"
 
     //Proceso
     do {
@@ -53,43 +59,66 @@ fun makeRecipe(){
         nombreReceta = readLine()?:"DSC"
 
         if (nombreReceta.isNullOrEmpty()) {
-            println("No has escrito nada, escribe un nombre para la receta")
+            println("No has escrito nada")
+        }else if(listaRecetas.containsKey(nombreReceta)){
+            println("Ya existe una receta con ese nombre")
         }
-    } while (nombreReceta.isNullOrEmpty())
+    } while (nombreReceta.isNullOrEmpty() || listaRecetas.containsKey(nombreReceta))
 
     println("El nombre de la receta es $nombreReceta")
 
-    var ingredientesReceta:List<String> = listOf<String>()
+    var ingredientesReceta:List<Alimento> = listOf<Alimento>()
 
     do{
         do {
-            println("Elige los ingredientes:\n")
+            println("Elige el grupo de alimento:")
             var num = 1
-            for(ingredientes in listaIngredientes){
-                println("$num. $ingredientes")
-                num++
+            for(grupoLista in listaIngredientes) {
+                if (!listaGruposNoRepes.containsValue(grupoLista.grupo)) {
+                    listaGruposNoRepes[num] = grupoLista.grupo
+                    println("$num. ${grupoLista.grupo}")
+                    num++
+                }
             }
+            var grupo = readLine()?:"DSC"
 
-            ingrediente = readLine()?:"DSC"
+            if (grupo.isNotEmpty()) {
 
-            if (ingrediente.isNotEmpty()) {
+                println("Elige un ingrediente:")
+                var num = 1
+                for(ingredientes in listaIngredientes){
+                    if (ingredientes.grupo == listaGruposNoRepes[grupo.toInt()]) {
+                        listaTempIngredientes += ingredientes
+                        println("$num. ${ingredientes.nombre}")
+                        num++
+                    }
+                }
 
-                ingredientesReceta += listaIngredientes.get(ingrediente.toInt() - 1)
+                ingrediente = readLine()?: "DSC"
 
-                println("El ingrediente ${listaIngredientes.get(ingrediente.toInt() - 1)} se ha añadido a la lista")
-                println("La lista contiene $ingredientesReceta")
-                println("¿Deseas añadir otro ingrediente? S o N")
+                if (ingrediente.isNotEmpty()) {
 
-                seguir = readLine()?:"DSC"
+                    ingredientesReceta += listaTempIngredientes[ingrediente.toInt() - 1]
 
-            } else {
-                println("El ingrediente añadido no esta en la lista")
+                    println("El ingrediente ${listaTempIngredientes[ingrediente.toInt() - 1].nombre} se ha añadido a la lista")
+                    println("¿Deseas añadir otro ingrediente? S o N")
+
+                    seguir = readLine() ?: "DSC"
+
+                } else if(ingrediente.isEmpty() || ingrediente.toInt() >= listaTempIngredientes.size){
+                    println("El ingrediente seleccionado no esta en la lista")
+                }
+            }else{
+                println("El grupo seleccionado no esta en la lista")
             }
+            listaGruposNoRepes.clear()
+            listaTempIngredientes = emptyList()
         } while (seguir.equals("S") || seguir.equals("s"))
 
-        listaRecetas.put(nombreReceta, ingredientesReceta)
-
     } while (ingredientesReceta.isNullOrEmpty() && ingrediente.isNullOrEmpty())
+
+    listaRecetas.put(nombreReceta, ingredientesReceta)
+    ingredientesReceta = emptyList()
 }
 
 fun viewRecipe(){
@@ -97,10 +126,51 @@ fun viewRecipe(){
     if (listaRecetas.isNullOrEmpty()){
         println("No hay recetas en la lista\n")
     }else {
+        println("Lista de recetas")
         for(auxReceta in listaRecetas){
             println("Nombre de la receta: ${auxReceta.key}")
-            println("Ingredientes: ${auxReceta.value} \n")
+            for (j: Int in 0..(auxReceta.value.size -1)) {
+                println("Ingrediente $j:  ${auxReceta.value[j].nombre}")
+            }
+            print("\n")
         }
     }
+}
+
+fun crearAlimentosIniciales(){
+    var auxAlimento = Alimento("Agua", 0, "litros", "Agua")
+    listaIngredientes += auxAlimento
+    auxAlimento = Alimento("Leche", 0, "litros","Lacteos")
+    listaIngredientes += auxAlimento
+    auxAlimento = Alimento("Carne", 0, "kilogramos", "Carnes")
+    listaIngredientes += auxAlimento
+    auxAlimento = Alimento("Lechuga", 0, "kilogramos", "Verduras")
+    listaIngredientes += auxAlimento
+    auxAlimento = Alimento("Fresa", 0, "kilogramos","Frutas")
+    listaIngredientes += auxAlimento
+    auxAlimento = Alimento("Plátano", 0, "kilogramos","Frutas")
+    listaIngredientes += auxAlimento
+    auxAlimento = Alimento("Uva", 0, "kilogramos","Frutas")
+    listaIngredientes += auxAlimento
+    auxAlimento = Alimento("Manzana", 0, "kilogramos","Frutas")
+    listaIngredientes += auxAlimento
+    auxAlimento = Alimento("Naranja", 0, "kilogramos","Frutas")
+    listaIngredientes += auxAlimento
+    auxAlimento = Alimento("Pera", 0, "kilogramos","Frutas")
+    listaIngredientes += auxAlimento
+    auxAlimento = Alimento("Cereza", 0, "kilogramos","Frutas")
+    listaIngredientes += auxAlimento
+    auxAlimento = Alimento("Avena", 0,"gramos", "Cereales")
+    listaIngredientes += auxAlimento
+    auxAlimento = Alimento("Trigo", 0, "gramos", "Cereales")
+    listaIngredientes += auxAlimento
+    auxAlimento = Alimento("Arroz", 0, "gramos", "Cereales")
+    listaIngredientes += auxAlimento
+    auxAlimento = Alimento("Maiz", 0, "gramos", "Cereales")
+    listaIngredientes += auxAlimento
+    auxAlimento = Alimento("Huevo", 0, "unidades", "Huevos")
+    listaIngredientes += auxAlimento
+    auxAlimento = Alimento("Aceite", 0, "litros", "Aceites")
+    listaIngredientes += auxAlimento
 }
 

@@ -1,6 +1,4 @@
 package model
 
-open class Alimento(var nombre: String, var cantidad: Int){
-
-
+class Alimento(val nombre: String, val cantidad: Int, val unidadMedida: String, val grupo: String){
 }
